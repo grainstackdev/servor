@@ -5,6 +5,7 @@ const http = require('http');
 const http2 = require('http2');
 const https = require('https');
 const zlib = require('zlib');
+const flowRemoveTypes = require('flow-remove-types');
 
 const mimeTypes = require('./utils/mimeTypes.js');
 const directoryListing = require('./utils/directoryListing.js');
@@ -82,6 +83,10 @@ module.exports = async ({
   };
 
   const sendFile = (res, status, file, ext, encoding = 'binary') => {
+    if (ext === 'js') {
+      file = flowRemoveTypes(file).toString()
+    }
+
     if (['js', 'css', 'html', 'json', 'xml', 'svg'].includes(ext)) {
       res.setHeader('content-encoding', 'gzip');
       file = zlib.gzipSync(utf8(file));

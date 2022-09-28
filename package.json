@@ -19,5 +19,8 @@
     "test": "npm run cleanup && cd tests && node index.js"
   },
   "author": "Luke Jackson <lukejacksonn@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "flow-remove-types": "^2.187.1"
+  }
 }

@@ -1,6 +1,7 @@
 *.key
 *.pem
 *.crt
+.idea
 
 .DS_Store
 node_modules
