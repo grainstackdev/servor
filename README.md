@@ -1,4 +1,4 @@
-# Servør
+# Servor
 
 > A dependency free dev server for modern web application development
 
